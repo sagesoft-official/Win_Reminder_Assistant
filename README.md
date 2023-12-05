@@ -1,4 +1,11 @@
-# Win Reminder Assistant v1.2.0
+<!--
+ * @Author: Nya-WSL
+ * Copyright © 2023 by Nya-WSL All Rights Reserved. 
+ * @Date: 2023-12-05 00:14:12
+ * @LastEditors: 狐日泽
+ * @LastEditTime: 2023-12-06 02:10:39
+-->
+# Win Reminder Assistant
 
 基于 `PySimpleGUI & Windows10/11通知` 的提醒小助手
 
@@ -8,11 +15,11 @@
 
 - 自定义通知标题和内容
 
-- 自定义通知图标（todo）
+- 自定义通知图标（考虑到需求，暂无支持计划）
 
 - 可选择的通知场景 | [UWP toast](https://learn.microsoft.com/en-us/uwp/schemas/tiles/toastschema/element-toast)
 
-- 可选择的前台通知留存时间（long[25s] | short）
+- 可选择的前台通知留存时间（long[25s] | short[默认，时间未知]）
 
 ## INSTALL
 
