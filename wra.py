@@ -3,10 +3,9 @@ Author: Nya-WSL
 Copyright © 2023 by Nya-WSL All Rights Reserved. 
 Date: 2023-12-06 21:56:21
 LastEditors: 狐日泽
-LastEditTime: 2023-12-07 00:24:22
+LastEditTime: 2023-12-07 00:33:56
 '''
 import time
-import datetime
 from win11toast import toast
 import tkinter.messagebox as tkmb
 from tkinter import Tk, Canvas, Entry, Button, PhotoImage

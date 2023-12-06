@@ -3,11 +3,11 @@
  * Copyright © 2023 by Nya-WSL All Rights Reserved. 
  * @Date: 2023-12-05 00:14:12
  * @LastEditors: 狐日泽
- * @LastEditTime: 2023-12-06 02:10:39
+ * @LastEditTime: 2023-12-07 00:34:47
 -->
 # Win Reminder Assistant
 
-基于 `PySimpleGUI & Windows10/11通知` 的提醒小助手
+基于 `Tkinter & Windows10/11通知` 的提醒小助手
 
 ## Feature
 
