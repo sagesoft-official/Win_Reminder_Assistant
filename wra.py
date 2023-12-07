@@ -3,7 +3,7 @@ Author: Nya-WSL
 Copyright © 2023 by Nya-WSL All Rights Reserved. 
 Date: 2023-12-06 21:56:21
 LastEditors: 狐日泽
-LastEditTime: 2023-12-07 00:33:56
+LastEditTime: 2023-12-07 10:17:10
 '''
 import time
 from win11toast import toast
@@ -28,8 +28,7 @@ def wra():
     scenario = entry_5.get()
     duration = entry_6.get()
     Title = entry_7.get()
-    print(f"1{TimeHours}, 2{TimeMinutes}, 3{TimeSeconds}, 4{Title}, 5{Launch}, 6{scenario}, 7{duration}")
-    
+
     if TimeHours == "" and TimeMinutes == "" and TimeSeconds == "":
         TimeError = tkmb.showerror(title="参数错误", message="倒计时不该为空！")
         if TimeError:
