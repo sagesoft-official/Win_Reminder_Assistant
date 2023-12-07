@@ -3,23 +3,80 @@ Author: Nya-WSL
 Copyright © 2023 by Nya-WSL All Rights Reserved. 
 Date: 2023-12-06 21:56:21
 LastEditors: 狐日泽
-LastEditTime: 2023-12-07 10:17:10
+LastEditTime: 2023-12-07 11:32:22
 '''
+
+import os
+import glob
 import time
+import base64
+import datetime
+from pathlib import Path
 from win11toast import toast
 import tkinter.messagebox as tkmb
 from tkinter import Tk, Canvas, Entry, Button, PhotoImage
+from assets import ico, button_1_64, entry_1_64, entry_2_64, entry_3_64, entry_4_64, entry_5_64, entry_6_64, entry_7_64
 
-# OUTPUT_PATH = Path(__file__).parent
-# ASSETS_PATH = OUTPUT_PATH / Path("assets/frame0")
+OUTPUT_PATH = Path(__file__).parent
+ASSETS_PATH = OUTPUT_PATH / Path(os.getcwd())
 
 # def relative_to_assets(path: str) -> Path:
 #     return ASSETS_PATH / Path(path)
 
-def relative_to_assets(path: str):
-    return "assets/frame0/" + path
+def relative_to_assets(path: str) -> Path:
+    ButtonImg = open("button_1.png","wb+")
+    ButtonImg.write(base64.b64decode(button_1_64))
+    ButtonImg.close()
+    Entry1Img = open("entry_1.png","wb+")
+    Entry1Img.write(base64.b64decode(entry_1_64))
+    Entry1Img.close()
+    Entry2Img = open("entry_2.png","wb+")
+    Entry2Img.write(base64.b64decode(entry_2_64))
+    Entry2Img.close()
+    Entry3Img = open("entry_3.png","wb+")
+    Entry3Img.write(base64.b64decode(entry_3_64))
+    Entry3Img.close()
+    Entry4Img = open("entry_4.png","wb+")
+    Entry4Img.write(base64.b64decode(entry_4_64))
+    Entry4Img.close()
+    Entry5Img = open("entry_5.png","wb+")
+    Entry5Img.write(base64.b64decode(entry_5_64))
+    Entry5Img.close()
+    Entry6Img = open("entry_6.png","wb+")
+    Entry6Img.write(base64.b64decode(entry_6_64))
+    Entry6Img.close()
+    Entry7Img = open("entry_7.png","wb+")
+    Entry7Img.write(base64.b64decode(entry_7_64))
+    Entry7Img.close()
+    return ASSETS_PATH / Path(path)
+
+def files(curr_dir, ext):
+    for i in glob.glob(os.path.join(curr_dir, ext)):
+        yield i
+
+def RemoveFiles(dir, ext):
+    for i in files(dir, ext):
+        os.remove(i)
+
+def wra_count(number):
+    global count
+    count = 0
+    count = number
+
+def TimeLeftText():
+    global Text
+    Text = canvas.create_text(
+            97.0,
+            287.0,
+            anchor="nw",
+            text=f"上次提醒时间：{datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')}",
+            fill="#000000",
+            font=("Inter", 12 * -1)
+            )
 
 def wra():
+    if count == 1:
+        canvas.delete(Text)
     TimeLeft = 0
     TimeHours = entry_1.get()
     TimeMinutes = entry_2.get()
@@ -56,7 +113,7 @@ def wra():
         TimeLeft = int(TimeLeft) - 1
         LeftText = canvas.create_text(
             175.0,
-            273.0,
+            287.0,
             anchor="nw",
             text=f"倒计时：{TimeLeft}",
             fill="#000000",
@@ -65,13 +122,19 @@ def wra():
         window.update()
         canvas.delete(LeftText)
     else:
-        global LastTimeText
+        TimeLeftText()
+        window.update()
         toast(Title, Launch, scenario=scenario, duration=duration)
+        wra_count(1)
 
+tmp = open("tmp.ico","wb+")
+tmp.write(base64.b64decode(ico))
+tmp.close()
 
-version = "1.3.0"
+version = "1.3.1"
 window = Tk()
-window.iconbitmap("icon.ico")
+window.iconbitmap("tmp.ico")
+os.remove("tmp.ico")
 window.title(f"Windows提醒小助手v{version} By. SageSoft")
 window.geometry("400x350")
 window.configure(bg = "#D6EEFF")
@@ -325,4 +388,7 @@ button_1.place(
 )
 
 window.resizable(False, False)
+RemoveFiles('.', '*.png')
+global count
+count = 0
 window.mainloop()
