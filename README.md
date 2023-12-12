@@ -3,7 +3,7 @@
  * Copyright © 2023 by Nya-WSL All Rights Reserved. 
  * @Date: 2023-12-05 00:14:12
  * @LastEditors: 狐日泽
- * @LastEditTime: 2023-12-07 00:34:47
+ * @LastEditTime: 2023-12-12 22:28:22
 -->
 # Win Reminder Assistant
 
@@ -23,6 +23,18 @@
 
 ## INSTALL
 
+#### WRA
+
 `pip intall -r requirements.txt`
 
 `pyinstaller -F wra.py -i icon.ico -w`
+
+#### WRA_WebL
+
+`python build.py`
+
+## KNOWN ISSUES
+
+- WRA-WebL在计时未结束的时候无法终止计时
+- 如果在计时期间再一次计时将会启动两个计时器
+- 可以通过结束进程的方式强制结束上一次计时
