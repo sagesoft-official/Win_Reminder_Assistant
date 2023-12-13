@@ -3,7 +3,7 @@ Author: Nya-WSL
 Copyright © 2023 by Nya-WSL All Rights Reserved. 
 Date: 2023-12-12 11:28:22
 LastEditors: 狐日泽
-LastEditTime: 2023-12-13 13:15:20
+LastEditTime: 2023-12-13 13:18:58
 '''
 
 import asyncio
@@ -46,7 +46,7 @@ async def cancel_task():
         cancel_button.disable()
 
 @ui.page('/')
-async def index():
+def index():
     global TextHours
     global TextMinutes
     global TextSeconds
