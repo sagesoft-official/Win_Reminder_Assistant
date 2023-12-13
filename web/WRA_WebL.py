@@ -3,13 +3,20 @@ Author: Nya-WSL
 Copyright © 2023 by Nya-WSL All Rights Reserved. 
 Date: 2023-12-12 11:28:22
 LastEditors: 狐日泽
-LastEditTime: 2023-12-13 13:18:58
+LastEditTime: 2023-12-13 13:45:47
 '''
-
+import json
 import asyncio
 import datetime
 from nicegui import ui, app
 from toast import toast
+
+def save_config(name, save_value):
+    with open(".nicegui/storage_general.json", "r", encoding="utf-8") as f:
+        config = json.load(f)
+    config[name] = save_value
+    with open(".nicegui/storage_general.json", "w", encoding="utf-8") as f:
+        json.dump(config, f, ensure_ascii=False)
 
 async def wra():
     try:
@@ -74,8 +81,8 @@ def index():
         TextMinutes = ui.number(label="分", value=0, format="%.0f").bind_value(app.storage.general, 'TimeMinutes')
         TextSeconds = ui.number(label="秒", value=0, format="%.0f").bind_value(app.storage.general, 'TimeSeconds')
 
-    Title = ui.input(label="通知标题")
-    Launch = ui.input(label="通知内容")
+    Title = ui.input(label="通知标题", on_change=lambda e: save_config("title", e.value))
+    Launch = ui.input(label="通知内容", on_change=lambda e: save_config("launch", e.value))
 
     ui.label("通知场景")
     toggle_scenario = ui.toggle(["reminder", "alarm", "incomingCall", "urgent"], value="reminder").bind_value(app.storage.general, 'scenario')
