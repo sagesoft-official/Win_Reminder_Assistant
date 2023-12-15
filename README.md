@@ -3,11 +3,11 @@
  * Copyright © 2023 by Nya-WSL All Rights Reserved. 
  * @Date: 2023-12-05 00:14:12
  * @LastEditors: 狐日泽
- * @LastEditTime: 2023-12-12 22:28:22
+ * @LastEditTime: 2023-12-15 11:33:04
 -->
 # Win Reminder Assistant
 
-基于 `Tkinter & Windows10/11通知` 的提醒小助手
+基于 `Tkinter/nicegui & Windows10/11通知` 的提醒小助手
 
 ## Feature
 
@@ -21,6 +21,10 @@
 
 - 可选择的前台通知留存时间（long[25s] | short[默认，时间未知]）
 
+- 支持可自定义的通知铃声
+
+- 更现代的UI
+
 ## INSTALL
 
 #### WRA
@@ -31,10 +35,12 @@
 
 #### WRA_WebL
 
-`python build.py`
+```
+cd web/
+pip intall -r requirements.txt
+python build.py
+```
 
 ## KNOWN ISSUES
 
-- WRA-WebL在计时未结束的时候无法终止计时
-- 如果在计时期间再一次计时将会启动两个计时器
-- 可以通过结束进程的方式强制结束上一次计时
+- 无法存储中文数据，等待nicegui官方回复再考虑如何修复
