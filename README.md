@@ -3,7 +3,7 @@
  * Copyright © 2023 by Nya-WSL All Rights Reserved. 
  * @Date: 2023-12-05 00:14:12
  * @LastEditors: 狐日泽
- * @LastEditTime: 2023-12-13 14:02:31
+ * @LastEditTime: 2023-12-15 11:33:04
 -->
 # Win Reminder Assistant
 
@@ -20,6 +20,10 @@
 - 可选择的通知场景 | [UWP toast](https://learn.microsoft.com/en-us/uwp/schemas/tiles/toastschema/element-toast)
 
 - 可选择的前台通知留存时间（long[25s] | short[默认，时间未知]）
+
+- 支持可自定义的通知铃声
+
+- 更现代的UI
 
 ## INSTALL
 
