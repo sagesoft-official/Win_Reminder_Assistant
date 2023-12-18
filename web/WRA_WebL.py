@@ -3,7 +3,7 @@ Author: Nya-WSL
 Copyright © 2023 by Nya-WSL All Rights Reserved. 
 Date: 2023-12-12 11:28:22
 LastEditors: 狐日泽
-LastEditTime: 2023-12-15 11:32:07
+LastEditTime: 2023-12-18 21:20:47
 '''
 # import json
 import asyncio
@@ -39,7 +39,7 @@ async def wra():
         TimeLeft = int(TimeLeft) - 1
         badge.set_text(int(TimeLeft))
     else:
-        if voice_switch:
+        if voice_switch.value:
             voice.play()
             voice_button.enable()
         TextTimeLeft.set_text("上次提醒时间：" + datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S'))
@@ -96,7 +96,7 @@ def index():
     global voice
     global color_choose
 
-    ui.badge('WRA For Web Local | WRA-WebL v1.1.0', text_color='#ffeded')
+    ui.badge('WRA For Web Local | WRA-WebL v1.4.1', text_color='#ffeded')
     with ui.row():
         with ui.badge('计时次数', outline=True):
             ui.badge('0',outline=True).bind_text_from(app.storage.general, 'time_left_count')
@@ -111,8 +111,8 @@ def index():
         TextSeconds = ui.number(label="秒", value=0, format="%.0f").bind_value(app.storage.general, 'TimeSeconds')
 
     with ui.row():
-        Title = ui.input(label="通知标题")
-        Launch = ui.input(label="通知内容")
+        Title = ui.input(label="通知标题").bind_value(app.storage.general, 'title')
+        Launch = ui.input(label="通知内容").bind_value(app.storage.general, 'launch')
 
     with ui.row():
         ui.label("通知场景")
