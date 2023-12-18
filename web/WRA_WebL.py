@@ -3,7 +3,7 @@ Author: Nya-WSL
 Copyright © 2023 by Nya-WSL All Rights Reserved. 
 Date: 2023-12-12 11:28:22
 LastEditors: 狐日泽
-LastEditTime: 2023-12-18 21:20:47
+LastEditTime: 2023-12-18 21:35:49
 '''
 # import json
 import asyncio
@@ -144,4 +144,4 @@ def index():
         ui.button(on_click=footer.toggle, icon='contact_support').props('fab')
 
 port = 3333
-ui.run(port=port, favicon="⏰", title="WRA-WebL", native=True, frameless=False, window_size=[600, 610], reload=False, show=True, storage_secret='SageSoft', language="zh-CN")
+ui.run(port=port, favicon="⏰", title="WRA-WebL", native=True, frameless=False, window_size=[600, 630], reload=False, show=True, storage_secret='SageSoft', language="zh-CN")
